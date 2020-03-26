@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Users System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+
+		<br />
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Users System</a>
+				</div>
+				<ul class="nav navbar-nav">
+				    <li><a th:href="@{/index}">Index</a></li>
+					<li class="active"><a th:href="@{/list_users}">List Users</a></li>
+					<li><a th:href="@{/input_user}">Create User</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<table class="table table-striped table-hover table-bordered">
+			<thead style="text-align:center;">
+				<tr>
+					<th style="text-align:center;">Id</th>
+					<th style="text-align:center;">FIRSTName</th>
+						<th style="text-align:center;">LASTName</th>
+					<th style="text-align:center;">Username</th>
+						<th style="text-align:center;">EMAILID</th>
+					<th style="text-align:center;">#</th>
+					<th style="text-align:center;">#</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.firstName} "></td>
+					<td th:text="${user.lastName}"></td>
+					<td th:text="${user.userName}"></td>
+					<td th:text="${user.emailId}"></td>
+					<td><a th:href="@{/show_user} + '?id=' + ${user.id}">Modify</a></td>
+					<td><a th:href="@{/delete_user} + '?id=' + ${user.id}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+	
+	    <br />
+	    
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Users System</a>
+				</div>
+				<ul class="nav navbar-nav">
+				    <li><a th:href="@{/index}">Index</a></li>
+					<li><a th:href="@{/list_users}">List Users</a></li>
+					<li class="active"><a th:href="@{/input_user}">Create User</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<form th:action="@{/create_user}" method="post" >
+			<div class="form-group">
+				<label for="nombre">First Name</label>
+				<input type="text" class="form-control" id="firstName" name="firstName" placeholder="Type in First Name">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Last Name</label>
+				<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Type in Last Name">
+			</div>
+			<div class="form-group">
+				<label for="nombre">User name</label>
+				<input type="text" class="form-control" id="userName" name="userName" placeholder="Type in Username">
+			</div>
+			<div class="form-group">
+				<label for="emailId">Email ID</label>
+				<input type="text" class="form-control" id="emailId" name="emailId" placeholder="Type in Username">
+			</div>
+			<div class="form-group">
+				<label for="clave">Password</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Type in Password">
+			</div>
+			
+			<br />
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+</body>
+</html>
